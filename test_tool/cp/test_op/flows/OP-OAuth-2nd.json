@@ -9,10 +9,12 @@
     ]
   },
   "desc": "Trying to use authorization code twice should result in an error",
-  "reference": "https://tools.ietf.org/html/rfc6749#section-5.2",
+  "reference": [
+    "https://tools.ietf.org/html/rfc6749#section-4.1.2"
+  ],
   "note": "This test should result in the OpenID Provider returning an error message.",
   "assert": {
-    "check-http-error-response":{},
+    "check-http-error-response": {},
     "verify-response": {
       "response_cls": [
         "ErrorResponse"
@@ -44,7 +46,7 @@
     },
     "AccessToken",
     {
-      "AccessToken":{
+      "AccessToken": {
         "set_expect_error": {
           "error": [
             "invalid_request",

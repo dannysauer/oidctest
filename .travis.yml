@@ -3,8 +3,8 @@ sudo: required
 language: node_js
 
 node_js:
-  - "8"
-
+  - "12"
+  
 services:
   - docker
 
@@ -38,12 +38,12 @@ install:
   - cd $TRAVIS_BUILD_DIR/..
   - git clone https://github.com/openid-certification/oidc-provider-conformance-tests.git
   - cd oidc-provider-conformance-tests
-  - git checkout tags/v2.0.11
+  - git checkout tags/v2.0.14
   - npm install --production
   - cd $TRAVIS_BUILD_DIR/..
   - git clone https://github.com/openid-certification/openid-client-conformance-tests.git
   - cd openid-client-conformance-tests
-  - git checkout tags/v1.0.9
+  - git checkout tags/v1.0.11
   - npm install --production
 
 before_script:

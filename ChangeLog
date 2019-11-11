@@ -1,3 +1,9 @@
+11/11/2019
+- Add session management and logout tests/profiles
+- Update to pyoidc 1.1.1
+- Create new branch stable-release-1.2.x
+- Release OP 2.3.0 and RP 1.2.0
+
 02/15/2019
 - OP: Handle http 401 response with or without response body.
 - OP: Fix comparison of types in check_support

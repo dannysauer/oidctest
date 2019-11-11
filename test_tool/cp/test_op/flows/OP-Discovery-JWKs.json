@@ -17,12 +17,17 @@
     }
   ],
   "MTI": [
-    "DYN", "CNF"
+    "DYN",
+    "CNF"
   ],
   "assert": {
     "check-http-response": null,
     "verify-base64url": {
       "err_status": 3
     }
-  }
+  },
+  "reference": [
+    "https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata",
+    "https://tools.ietf.org/html/rfc7517#section-5"
+  ]
 }

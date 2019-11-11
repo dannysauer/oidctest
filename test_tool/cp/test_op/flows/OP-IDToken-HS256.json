@@ -26,7 +26,12 @@
     {
       "AccessToken": {
         "conditional_execution": {
-          "return_type": ["CIT","CI","C","CT"]
+          "return_type": [
+            "CIT",
+            "CI",
+            "C",
+            "CT"
+          ]
         }
       }
     }
@@ -47,5 +52,8 @@
         "AuthorizationResponse"
       ]
     }
-  }
+  },
+  "reference": [
+    "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"
+  ]
 }

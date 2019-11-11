@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# Copyright (C) 2015 Umea Universitet, Sweden
+# Copyright (C) 2019 Roland Hedberg, Sweden
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -47,8 +47,8 @@ setup(
         "requests >= 2.0.0",
         'future',
         'CherryPy == 8.9.1',
-        'oic == 0.15.1',
-        'otest >= 0.7.3',
+        'oic >= 1.1.1',
+        'otest >= 0.8.0',
         'psutil',
         'cherrypy-cors >= 1.5',
         'six',

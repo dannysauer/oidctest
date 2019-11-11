@@ -9,8 +9,8 @@ from oic.exception import PyoidcError
 from oic.exception import RequestError
 from oic.oauth2 import ErrorResponse
 from oic.oauth2.exception import MissingRequiredAttribute
-from oic.oic import OpenIDSchema
-from oic.oic import UserInfoErrorResponse
+from oic.oic.message import OpenIDSchema
+from oic.oic.message import UserInfoErrorResponse
 from oic.utils.authn.client import CLIENT_AUTHN_METHOD
 
 __author__ = 'roland'
@@ -21,6 +21,8 @@ logger = logging.getLogger(__name__)
 class Client(oic.Client):
     def __init__(self, *args, **kwargs):
         oic.Client.__init__(self, *args, **kwargs)
+        self.smid2sid = {}
+        self.logout_state2state = {}
 
     def generate_request_uris(self, request_dir):
         """

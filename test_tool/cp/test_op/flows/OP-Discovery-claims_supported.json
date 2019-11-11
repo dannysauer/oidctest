@@ -17,10 +17,14 @@
     }
   ],
   "MTI": [
-    "DYN", "CNF"
+    "DYN",
+    "CNF"
   ],
   "assert": {
     "providerinfo-has-claims_supported": null,
     "check-http-response": null
-  }
+  },
+  "reference": [
+    "https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata"
+  ]
 }

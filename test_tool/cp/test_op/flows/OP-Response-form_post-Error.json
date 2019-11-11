@@ -14,7 +14,9 @@
     },
     {
       "Registration": {
-        "set_redirect_uris": ["authz_post"]
+        "set_redirect_uris": [
+          "authz_post"
+        ]
       }
     },
     {
@@ -61,5 +63,8 @@
         "consent_required"
       ]
     }
-  }
+  },
+  "reference": [
+    "https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html#FormPostResponseMode"
+  ]
 }

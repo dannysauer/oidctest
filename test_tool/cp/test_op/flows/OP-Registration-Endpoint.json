@@ -22,5 +22,8 @@
   ],
   "assert": {
     "verify-op-has-registration-endpoint": null
-  }
+  },
+  "reference": [
+    "https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata"
+  ]
 }

@@ -35,8 +35,13 @@
     "AsyncAuthn",
     {
       "AccessToken": {
-        "conditional_execution":{
-          "return_type": ["CIT","CI","C","CT"]
+        "conditional_execution": {
+          "return_type": [
+            "CIT",
+            "CI",
+            "C",
+            "CT"
+          ]
         }
       }
     },
@@ -49,10 +54,18 @@
     },
     {
       "AccessToken": {
-        "conditional_execution":{
-          "return_type": ["CIT","CI","C","CT"]
+        "conditional_execution": {
+          "return_type": [
+            "CIT",
+            "CI",
+            "C",
+            "CT"
+          ]
         }
       }
     }
+  ],
+  "reference": [
+    "https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest"
   ]
 }

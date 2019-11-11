@@ -37,13 +37,15 @@
   },
   "desc": "Symmetric ID Token signature with any signing algorithm [Extra]",
   "assert": {
-    "verify-idtoken-is-signed": {
-    },
+    "verify-idtoken-is-signed": {},
     "verify-response": {
       "response_cls": [
         "AccessTokenResponse",
         "AuthorizationResponse"
       ]
     }
-  }
+  },
+  "reference": [
+    "https://openid.net/specs/openid-connect-core-1_0.html#IDToken"
+  ]
 }
