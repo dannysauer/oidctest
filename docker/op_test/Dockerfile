@@ -13,7 +13,7 @@ ENV SUBDIR ${SRCDIR}/${INSTDIR}/oidc_op
 
 WORKDIR ${SRCDIR}
 
-ENV VERSION_OTEST   tags/v0.8.1
+ENV VERSION_OTEST   tags/v0.8.2
 
 RUN git clone https://github.com/openid-certification/otest.git
 RUN cd otest && git fetch origin && git checkout ${VERSION_OTEST} && cd -

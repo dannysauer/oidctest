@@ -1,6 +1,6 @@
 # Operational Maintenance
 
-*Version 2.1.0 - October 2, 2018*
+*Version 2.1.1 - November 11, 2019*
 
 This document describes operational maintenance procedures for the OpenID Connect OP and RP certification environments
 that the OpenID Foundation provides. It lists important directory/file structures and the steps one would have to take

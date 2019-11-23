@@ -41,7 +41,7 @@ def set_webfinger_resource(oper, args):
         or 'webfinger_email' from the test instance configuration.
     Example:
         "set_webfinger_resource": null
-        
+
     """
 
     try:
@@ -188,7 +188,7 @@ def static_jwk(oper, args):
         Set a static JWKS, remove jwks_uri if specified.
     Example:
         "static_jwk": null
-        
+
     """
     _client = oper.conv.entity
     del oper.req_args["jwks_uri"]
@@ -492,7 +492,7 @@ def redirect_uri_with_query_component(oper, args):
 def redirect_uris_with_query_component(oper, args):
     """
     Context:
-        AsyncAuthn
+        Registration
     Action:
         Add a query component to the redirect_uris
     Args:
@@ -552,7 +552,7 @@ def post_logout_redirect_uri_with_query_component(oper, args):
     Example:
         "post_logout_redirect_uri_with_query_component": {"foo":  "bar"}
     """
-    ru = oper.conv.entity.registration_info['post_logout_redirect_uris'][0]
+    ru = oper.conv.entity.registration_response['post_logout_redirect_uris'][0]
     ru += "?%s" % urlencode(args)
     oper.req_args.update({"post_logout_redirect_uri": [ru]})
 
@@ -671,7 +671,7 @@ def set_post_logout_redirect_uri(oper, arg):
         "set_post_logout_redirect_uri": null
     """
     ent = oper.conv.entity
-    oper.req_args["post_logout_redirect_uri"] = ent.registration_info[
+    oper.req_args["post_logout_redirect_uri"] = ent.registration_response[
         'post_logout_redirect_uris'][0]
 
 
