@@ -32,6 +32,11 @@ fix it. If you have no idea, then please tell us at certification@oidf.org
 and we will help you figure it out.
 """
 
+LOGOUT_MAP = {
+    "FrontChannelLogout": "frontchannel_logout",
+    "BackChannelLogout": "backchannel_logout",
+    "PostLogout": "logout"
+}
 
 def expected_response_mode(conv):
     try:
@@ -250,6 +255,7 @@ class Main(object):
             resp = self.tester.async_response(self.webenv["conf"],
                                               response=kwargs)
         except cherrypy.HTTPRedirect:
+            # self.tester.flows.store_test_info(self)
             raise
         except Break:
             resp = False
@@ -326,9 +332,21 @@ class Main(object):
 
         # continue with next operation in the sequence
         self.sh["index"] += 1
+        item = self.sh["sequence"][self.sh["index"]]
+        if isinstance(item, tuple):
+            cls, _ = item
+        else:
+            cls = item
+        logger.debug('Next operation: %s (ref:%s)', cls.__name__, ref)
+        if LOGOUT_MAP[cls.__name__] != ref:
+            _conv.events.store(EV_FAULT, "Expected {} but got {}".format(cls.__name__, ref))
+            self.tester.store_result()
+            self.opresult()
+
         try:
             resp = self.tester.handle_request(request, **kwargs)
         except cherrypy.HTTPRedirect:
+            self.tester.flows.store_test_info(self.tester)
             raise
         except (Break, OperationError) as err:
             resp = False
@@ -374,7 +392,7 @@ class Main(object):
                     self.opresult()
                 else:
                     return self._endpoint(ref='backchannel_logout',
-                                      request=_request)
+                                          request=_request)
             else:
                 _request_args = cherrypy.request.params
                 if not _request_args:
@@ -404,7 +422,7 @@ class Main(object):
             logger.debug('Not for me')
             self.opresult()
         else:
-            _args = dict([(k,v) for k,v in kwargs.items()
+            _args = dict([(k, v) for k, v in kwargs.items()
                           if k not in ['entity_id', 'sid']])
             return self._endpoint(ref='frontchannel_logout', **_args)
 
@@ -434,10 +452,9 @@ class Main(object):
                     return self.main_page()
                 else:
                     _msg = self.tester.inut.pre_html['session_verify.html']
-                    _csi = self.tester.conv.entity.provider_info[
-                        'check_session_iframe']
-                    _msg.replace("{check_session_iframe}", _csi)
-                    return as_bytes(_msg)
+                    _csi = self.tester.conv.entity.provider_info['check_session_iframe']
+                    _mod_msg = _msg.replace("{check_session_iframe}", _csi)
+                    return as_bytes(_mod_msg)
 
     @cherrypy.expose
     def session_change(self, **kwargs):
@@ -458,8 +475,8 @@ class Main(object):
                 self.opresult()
             else:  # display after_logout.html again
                 self.session_checks['changed'] += 1
-                logger.debug('{} session check'. format(self.session_checks[
-                                                            'changed']))
+                logger.debug('{} session check'.format(self.session_checks[
+                                                           'changed']))
                 self.tester.conv.events.store(
                     'SessionState',
                     'Session check {} returned: {}'.format(
@@ -473,8 +490,8 @@ class Main(object):
                     _msg = self.tester.inut.pre_html['after_logout.html']
                     _csi = self.tester.conv.entity.provider_info[
                         'check_session_iframe']
-                    _msg.replace("{check_session_iframe}", _csi)
-                    return as_bytes(_msg)
+                    _mod_msg = _msg.replace("{check_session_iframe}", _csi)
+                    return as_bytes(_mod_msg)
 
     def rp_iframe(self, status, service_url):
         _conv = self.tester.conv

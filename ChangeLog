@@ -1,3 +1,7 @@
+12/09/2019
+- More session management and logout fixes
+- Release OP 2.3.2 and RP 1.2.2
+
 11/23/2019
 - Session management and logout fixes
 - Update to pyoidc 1.1.2
