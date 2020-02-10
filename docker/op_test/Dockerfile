@@ -13,7 +13,7 @@ ENV SUBDIR ${SRCDIR}/${INSTDIR}/oidc_op
 
 WORKDIR ${SRCDIR}
 
-#ENV PYOIDC_VERSION=b41e8d37780723a2f74025adff42d3ed84c21bfc
+#ENV PYOIDC_VERSION=dcbf2fa41e4050d8c077992d3481fc3967824c5d
 #RUN git clone https://github.com/OpenIDC/pyoidc.git
 #RUN cd pyoidc && git fetch origin && git checkout ${PYOIDC_VERSION} -b temp
 #RUN cd pyoidc && python3 setup.py install
