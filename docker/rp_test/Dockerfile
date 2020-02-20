@@ -19,7 +19,7 @@ WORKDIR ${SRCDIR}
 #RUN cd pyoidc && git remote add upstream https://github.com/rohe/pyoidc.git && git fetch upstream && git checkout upstream/channel_logout
 #RUN cd pyoidc && python3 setup.py install
 
-ENV VERSION_OTEST   tags/v0.8.3
+ENV VERSION_OTEST   tags/v0.8.4
 RUN git clone https://github.com/openid-certification/otest.git
 RUN cd otest && git fetch origin && git checkout ${VERSION_OTEST} && cd -
 RUN cd otest && python3 setup.py install && cd -

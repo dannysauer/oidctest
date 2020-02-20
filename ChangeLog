@@ -1,3 +1,6 @@
+02/20/2020
+- update to otest 0.8.4 (remove unused dependency "entropy")
+
 02/10/2020
 - Update to pyoidc 1.2.0
 - More session management changes
