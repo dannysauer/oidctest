@@ -1,3 +1,7 @@
+03/17/2020
+- more logout fixes
+- Release OP 2.3.5 and RP 1.2.5
+
 03/07/2020
 - session management: take care of sender and receiver mismatch
 - oidc_setup.py: add missing templates directory and use python3 
