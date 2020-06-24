@@ -37,6 +37,14 @@ PRE_HTML = """
             <div class="clearfix"></div>
         </div>
 
+        <div class="page-header">
+            <div class="text-center text-uppercase text-warning border border-danger">
+                <p>The certification test suite is migrating to a new service <a href="https://www.certification.openid.net/">here</a> and will be decommissioned by the end of July 2020.</p>
+                <p>You are encouraged to run the new suite for new certifications and to provide feedback, see <a href="https://openid.net/certification/migration/">here</a> for details on the migration.</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Relying Party Certification Test Logs</h3>
